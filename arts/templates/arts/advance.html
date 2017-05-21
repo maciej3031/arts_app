@@ -1,0 +1,86 @@
+{% extends "arts/base_generic.html" %}
+
+{% block title %}Artykuł na dziś{% endblock %}
+
+{% block content %}
+<header class="intro">
+    <div class="intro-body">
+        <div class="container">
+            <div class="row" style="margin-top: 70px;">
+                <div class="col-md-8 col-md-offset-2">
+                    <h1 class="brand-heading">artykuł na dziś</h1>
+                    <p class="intro-text">Losowy artykuł popularno-naukowy
+                        <br>Codzienna dawka wiedzy
+                    </p>
+
+                    <form method="POST" action="{% url 'arts:advance' %}">
+                        {% csrf_token %}
+                        <div class="width-300 my-form">
+                            <span class="intro-text">Strona źródłowa:</span>
+                            <label>
+                                <select name="site" class="form-control width-300">
+                                        <option value="" selected="selected">Dowolna</option>
+                                    {% for site in sites%}
+                                        <option value="{{ sites.id}}">{{ site.site_name}}</option>
+                                    {% endfor %}
+                                </select>
+                            </label>
+                            <br>
+                            <span class="intro-text">Kategoria:</span>
+                            <label>
+                                <select name="category" class="form-control width-300">
+                                        <option value="" selected="selected">Dowolna</option>
+                                    {% for category in categories%}
+                                        <option value="{{ category.id}}">{{ category.category_name}}</option>
+                                    {% endfor %}
+                                </select>
+                            </label>
+                            <br>
+                            <span class="intro-text">Słowa kluczowe oddzielone spacją:</span>
+                            <label>
+                                <input type="text" class="width-300 text-black intro-text" name="keywords">
+                            </label>
+                            <br>
+                            <span class="intro-text">Autor:</span>
+                            <label>
+                                <input type="text" class="width-300 text-black intro-text" name="author">
+                            </label>
+                            <br>
+                            <span class="intro-text">Data dodania:</span>
+                            <label>
+                                <select name="date" class="form-control width-300">
+                                    <option value="" selected="selected">Dowolna</option>
+                                    <option value="1_day">Ostatni dzień</option>
+                                    <option value="1_week">Ostatni tydzień</option>
+                                    <option value="1_month">Ostatni miesiąc</option>
+                                    <option value="3_month">Ostatnie 3 miesiące</option>
+                                </select>
+                            </label>
+                            <br>
+                            <span class="intro-text">Ocena:</span>
+                            <label>
+                                <select name="rate" class="form-control width-300">
+                                    <option value="" selected="selected">Dowolna</option>
+                                    <option value="gt4">Powyżej 4</option>
+                                    <option value="gt3">Powyżej 3</option>
+                                    <option value="gt2">Powyżej 2</option>
+                                    <option value="gt1">Powyżej 1</option>
+                                    <option value="lt4">Poniżej 4</option>
+                                    <option value="lt3">Poniżej 3</option>
+                                    <option value="lt2">Poniżej 2</option>
+                                    <option value="lt1">Poniżej 1</option>
+                                </select>
+                            </label>
+                            <br><br>
+                            <button class="btn btn-default btn-lg">
+                                <span class="network-name">Losuj artykuł</span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+{% endblock %}
+

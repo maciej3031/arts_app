@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Losowy artykuł popularno-naukowy. Codzienna dawka wiedzy">
+    <meta name="author" content="Maciej Pęśko">
+    <meta name="keywords" content="artykuł, popularnonaukowy, losowy">
+
+    <title>{% block title %}{% endblock %}</title>
+
+    <!-- Bootstrap Core CSS -->
+    {% load static %}
+
+    <link href="{% static 'arts/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+
+        <!-- Custom Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+
+    <!-- Theme CSS -->
+    <link href="{% static 'arts/style.css' %}" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="{% static 'star-ratings/css/star-ratings.css' %}">
+
+</head>
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-custom navbar-fixed-top bg-inverse" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                    Menu
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">
+                    Przewiń w górę
+                </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-right navbar-main-collapse ">
+                <ul class="nav navbar-nav">
+                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a href="{% url 'arts:index' %}">Losuj artykuł</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'arts:advance' %}">Zaaw. losowanie</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'arts:poll' %}">Oceń stronę</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+
+    <!-- Content -->
+    {% block content %}{% endblock %}
+
+    <!-- Footer -->
+    <footer>
+        <div class="container text-center">
+            <p>2017 © Maciej Pęśko
+                <img src="{% static 'arts/images/mail.ico' %}" alt="mail-icon" height="32"> mpesko3031@gmail.com
+            </p>
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="{% static 'star-ratings/js/dist/star-ratings.min.js' %}"></script>
+
+    <!-- jQuery -->
+    <script src="{% static 'arts/vendor/jquery/jquery.js' %}"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{% static 'arts/vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+
+    <!-- Plugin JavaScript -->
+    <!--<script src=url("https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js")></script>-->
+    <script src="{% static 'arts/vendor/jquery/star-rating.js' %}" type="text/javascript"></script>
+
+
+</body>
+
+</html>

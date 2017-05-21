@@ -1,0 +1,33 @@
+{% extends "arts/base_generic.html" %}
+
+{% block title %}Artykuł na dziś{% endblock %}
+
+{% block content %}
+<header class="intro">
+    <div class="intro-body">
+        <div class="container">
+            <div class="row">
+                {% if messages %}
+                <div class="my-alert">
+                    {% for i in messages %}
+                        {{ i|capfirst }}
+                    {% endfor %}
+                </div>
+                {% endif%}
+                <div class="col-md-8 col-md-offset-2">
+                    <h1 class="brand-heading">artykuł na dziś</h1>
+                    <p class="intro-text">Losowy artykuł popularno-naukowy
+                        <br>Codzienna dawka wiedzy
+                    </p>
+                    <form action="{% url 'arts:detail' %}" method="GET">
+                        <button class="btn btn-default btn-lg">
+                            <span class="network-name">Losuj artykuł</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+{% endblock %}
+

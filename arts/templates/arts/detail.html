@@ -1,0 +1,69 @@
+{% extends "arts/base_generic.html" %}
+{% load ratings %}
+
+{% block content %}
+
+<article class="article">
+    <div class="article-body">
+        <div class="container">
+            <div class="row" style="margin-top: 70px;">
+                <div class="col-md-8 col-sm-6 text-center" >
+                    <h3 class="article-heading">
+                        {% if article %}
+                        {{ article.title }}
+                        {% endif %}
+                    </h3>
+                </div>
+
+                <div class="col-md-4 text-center">
+                    <div class="article-heading-2">
+                        {% ratings article %}
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 col-md-7 col-sm-6 text-lg-left text-md-left text-sm-left text-xs-center">
+                    <p class="article-heading-2">
+                    {% if article.author and article.pub_date%}
+                        <em><br>Autor: {{ article.author }} <br>
+                        Data publikacji: {{ article.pub_date }} <br>
+                        Kategoria: {{ article.category_id }} <br>
+                        Strona źródłowa: <a href="{{ article.site_id }}" target="_blank"> {{ article.site_id }}</a> </em>
+                    </p>
+                    {% endif %}
+                </div>
+                <div class="col-md-4 text-center" >
+                    {% if article.image%}
+                    <img src="{{ article.image.url }}" alt="Nie udało się załadować ilustracji :(" width="345" height="200">
+                    {% endif %}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 text-justify" >
+                    <p class="article-text" >
+                        &nbsp&nbsp&nbsp
+                        {% if article %}
+                        {{ article.article_text }}
+                        {% endif %}
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-8 text-md-left">
+                    <p class="article-text">
+                        <em>Źródło: <a href="{{ article.article_url }}" target="_blank">{{ article.article_url }}</a></em>
+                    </p>
+                </div>
+
+                <div class="col-lg-4 justify-content-lg-center">
+                    <form class="random-art-form" action="{% url 'arts:detail' %}" method="GET">
+                        <button class="btn btn-default btn-lg ">
+                            <span class="network-name">Losuj kolejny artykuł</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</article>
+{% endblock %}
