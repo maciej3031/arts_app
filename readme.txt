@@ -1,5 +1,12 @@
 APPLICATION WITH RANDOM ARTICLES FROM http://kopalniawiedzy.pl/
 
+HOW TO RUN
+
+1) Install requirements using: 'pip install -r requirements.txt'
+2) Run 'python manage.py migrate' to create db
+3) Run application using 'python manage.py runserver'
+4) Run 'python manage.py my_script' to get articles data from outter website, parse it and save into db
+
 1. Basic information
 Application is developed in Python, using the Django framework. Front end is based on HTML, Bootstrap and JQuery. Database is created in SQLite. Not deployed yet.
 
