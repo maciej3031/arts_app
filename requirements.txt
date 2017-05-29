@@ -4,3 +4,4 @@ requests
 django-star-ratings
 pytz
 pillow
+lxml
