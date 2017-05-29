@@ -10,14 +10,13 @@ Application allows to:
 
 3. Application structure
 - application is developed using MVT design pattern.
-- database model is define in arts/models.py
+- database model is defined in arts/models.py
 - views handles all the requests are defined in arts/views.py
 - static files are located in arts/static
 - html templates are located in arts/templates
 - configuration settings are located in 10_articles/settings.py
 - migrations are located in arts/migrations
 - there is my_script.py in arts/management. It downloads articles  from the Internet, parses them and saves in the db. Script uses bs4 and requests libs.
-- virtual env. in arts_virtual_env
 
 4. To do:
 - poll,
@@ -26,3 +25,4 @@ Application allows to:
 - more different websites to download articles from,
 - deploy on heroku,
 - more advance admin panel,
+- tests

@@ -83,7 +83,7 @@ class Article(models.Model):
         verbose_name_plural = "Artykuły"
 
     @classmethod
-    def get_article_query_set_advance(cls, adv_search):
+    def get_article_query_set(cls, adv_search):
         query_set = cls.objects.all()
         query_set = cls.get_article_query_set_by_site(query_set, adv_search)
         query_set = cls.get_article_query_set_by_category(query_set, adv_search)
@@ -458,9 +458,7 @@ class WebPageParserKW(WebPageParser):
         list_all_a_tags_per_cat = WebPageParserKW.get_list_of_tag_and_css_cls_from_list("a", "title", article_list_content_class)
         list_all_span_tags_per_cat = WebPageParserKW.get_list_of_tag_from_list("span", article_list_content_class)
 
-        # wyciągnięcie dat i linków
-        list_of_all_urls_per_cat_page = WebPageParserKW.get_urls_from_a_tag(global_url,
-                                                                            list_all_a_tags_per_cat)
+        list_of_all_urls_per_cat_page = WebPageParserKW.get_urls_from_a_tag(global_url, list_all_a_tags_per_cat)
         list_of_all_dates_per_cat_page = WebPageParserKW.get_dates_from_span_tag(list_all_span_tags_per_cat)
 
         article_url_list_per_cat = WebPageParserKW.get_article_urls_by_date(

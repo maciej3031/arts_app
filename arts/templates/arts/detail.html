@@ -8,11 +8,11 @@
         <div class="container">
             <div class="row" style="padding-top: 80px;">
                 <div class="col-md-8 col-sm-6 text-center" >
-                    <h3 class="article-heading" style="padding-top: 20px;">
+                    <header class="article-heading">
                         {% if article %}
                         {{ article.title }}
                         {% endif %}
-                    </h3>
+                    </header>
                 </div>
 
                 <div class="col-md-4 text-center">
@@ -55,13 +55,13 @@
                     </p>
                 </div>
 
-                <div class="col-lg-4 justify-content-lg-center">
+                <footer class="col-lg-4 justify-content-lg-center">
                     <form class="random-art-form" action="{% url 'arts:detail' %}" method="GET">
                         <button class="btn btn-default btn-lg ">
                             <span class="network-name">Losuj kolejny artykuł</span>
                         </button>
                     </form>
-                </div>
+                </footer>
             </div>
         </div>
     </div>

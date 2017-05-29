@@ -21,7 +21,7 @@ def advance(request):
                                    keywords=request.POST['keywords'],
                                    date=request.POST['date'],
                                    rate=request.POST['rate'],)
-        article_query_set = Article.get_article_query_set_advance(adv_search)
+        article_query_set = Article.get_article_query_set(adv_search)
         if not article_query_set:
             message = messages.error(request, "Nie znaleziono artykułu o podanych kryteriach")
             context = {'message': message}

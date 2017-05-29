@@ -33,10 +33,12 @@ h1, h2 {
     letter-spacing: 1px
 }
 
-h3 {
+.brand-heading, .article-heading {
     margin: 0 0 35px;
     font-weight: 700;
     letter-spacing: 1px
+    text-transform: uppercase;
+    font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 
@@ -164,6 +166,7 @@ a:focus, a:hover {
     width: 300px;
     margin-left: auto;
     margin-right: auto;
+    font-size: 18px
 
 }
 
@@ -238,6 +241,7 @@ a:focus, a:hover {
 
 .intro .intro-body .intro-text {
     font-size: 18px
+    margin-bottom: 20px;
 }
 
 .article .article-body .article-text {
@@ -251,6 +255,10 @@ a:focus, a:hover {
 
 .random-art-form{
         text-align: center;
+}
+
+header{
+text-transform: uppercase;
 }
 
 .article-heading-2 {

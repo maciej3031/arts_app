@@ -4,10 +4,10 @@ from arts.models import WebPageParserKW
 from django.core.management.base import BaseCommand
 
 # Liczba dni wstecz, z których pobierane mają być artykuły
-DAYS = 500
+DAYS = 7
 
 # liczba stron do przeiterowania dla danej kategorii
-NUM_OF_PAGES = 150
+NUM_OF_PAGES = 30
 
 # link do strony głównej
 global_url = "http://kopalniawiedzy.pl"
