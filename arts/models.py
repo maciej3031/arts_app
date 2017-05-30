@@ -219,27 +219,6 @@ class Article(models.Model):
                 self.save()
 
 
-title = models.CharField("Tytuł", max_length=255, unique=True)
-article_text = models.TextField("Treść")
-author = models.CharField("Autor", max_length=255, blank=True)
-pub_date = models.DateTimeField("Data dodania")
-image_url = models.URLField("Źródło obrazka", blank=True)
-image = models.ImageField("Zdjęcie", upload_to="kw/", blank=True, null=True)
-article_url = models.URLField("Źródło", unique=True)
-site_id = models.ForeignKey(Site, on_delete=models.CASCADE, verbose_name="Strona źródłowa")
-category_id = models.ForeignKey(Category, on_delete=models.CASCADE, verbose_name="Kategoria")
-rate = GenericRelation(Rating, related_query_name='articles')
-
-
-def __str__(self):
-    return self.title
-
-
-class Meta:
-    verbose_name = "Artykuł"
-    verbose_name_plural = "Artykuły"
-
-
 class Question(models.Model):
 
     question_text = models.CharField("Pytanie",  max_length=255, blank=False)
