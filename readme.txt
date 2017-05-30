@@ -7,7 +7,7 @@ HOW TO RUN
 2) Install requirements using: 'pip install -r requirements.txt'
 3) Run 'python manage.py migrate' to create db
 4) Run application using 'python manage.py runserver'
-5) Run 'python manage.py my_script' to get articles data from outter website, parse it and save into db
+5) Run 'python manage.py my_script' in different console to get articles data from outter website, parse it and save into db
 
 1. Basic information
 Application is developed in Python, using the Django framework. Front end is based on HTML, Bootstrap and JQuery. Database is created in SQLite. Not deployed yet.
