@@ -29,7 +29,8 @@ wheels/
 * MY
 media
 db.sqlite3
-arts_virtual_env
+virtualenv
+my_py3
 
 
 # PyInstaller
