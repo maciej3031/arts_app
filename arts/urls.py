@@ -1,4 +1,6 @@
+# -*- coding: utf-8 -*-
 from django.conf.urls import url
+
 from . import views
 
 app_name = 'arts'      # to differentiate the URL names between apps (if there are more than one app)

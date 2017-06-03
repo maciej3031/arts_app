@@ -1,6 +1,8 @@
-from django.shortcuts import render
-from .models import Article, Category, Site, AdvanceSearch
+# -*- coding: utf-8 -*-
 from django.contrib import messages
+from django.shortcuts import render
+
+from .models import Article, Category, Site, AdvanceSearch
 
 
 def index(request):

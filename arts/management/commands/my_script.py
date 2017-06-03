@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
 
-from arts.models import WebPageParserKW
 from django.core.management.base import BaseCommand
+
+from arts.WebPageParser import WebPageParserKW
+from arts.models import do_db_operations
 
 # Liczba dni wstecz, z których pobierane mają być artykuły
 DAYS = 7
@@ -34,6 +36,6 @@ class Command(BaseCommand):
                     print("Nie znaleziono kategorii na stronie: {}".format(article_url))
                     continue
                 try:
-                    WebPageParserKW.do_db_operations(article_url, global_url, article_category, article_soup, global_url)
+                    do_db_operations(article_url, article_category, article_soup, global_url)
                 except UnicodeEncodeError:
                     continue
