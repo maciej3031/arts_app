@@ -70,8 +70,7 @@ class DateTimeParser:
             current_date = timezone.datetime.now()
             months = {"stycznia": "/01/", "lutego": "/02/", "marca": "/03/", "kwietnia": "/04/", "maja": "/05/",
                       "czerwca": "/06/", "lipca": "/07/", "sierpnia": "/08/", "września": "/09/",
-                      "października": "/10/",
-                      "listopada": "/11/", "grudnia": "/12/",
+                      "października": "/10/", "listopada": "/11/", "grudnia": "/12/",
                       "wczoraj": "{:02}/{:02}/{:02}".format(current_date.day - 1, current_date.month,
                                                             current_date.year),
                       "dzisiaj": "{:02}/{:02}/{:02}".format(current_date.day, current_date.month, current_date.year),
@@ -135,11 +134,11 @@ class WebPageParserKW(WebPageParser):
             article_url_list = []
 
             for category_url in category_pages_urls:
-                iterator = 0  # odpowiada za liczbę sprawdzonych podstron kategorii
+                site_counter = 0  # odpowiada za liczbę sprawdzonych podstron kategorii
                 next_page_url = category_url
 
                 # pobieramy linki do artykułów z kolejnych podstron
-                while iterator < num_of_pages:
+                while site_counter < num_of_pages:
                     try:
                         article_list_soup = WebPageParserKW.get_soup_of_url(next_page_url)
                     except AttributeError:
@@ -155,7 +154,7 @@ class WebPageParserKW(WebPageParser):
                         article_url_list.extend(article_url_list_per_cat)
                     try:
                         next_page_url = WebPageParserKW.get_next_page_url(article_list_soup, global_url)
-                        iterator += 1
+                        site_counter += 1
                     except IndexError:
                         print("Nie znaleziono przycisku nastepnej strony dla kategorii: {}".format(category_url))
                         break
