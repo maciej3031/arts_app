@@ -1,4 +1,5 @@
 django
+djangorestframework
 bs4
 requests
 django-star-ratings

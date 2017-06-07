@@ -9,4 +9,8 @@ urlpatterns = [
     url(r'detail/$', views.detail, name='detail'),
     url(r'advance/$', views.advance, name='advance'),
     url(r'poll/$', views.poll, name='poll'),
+    url(r'article/$', views.article_list, name='article_list'),
+    url(r'article/(?P<pk>[0-9]+)/$', views.article_detail, name='article_detail'),
+    url(r'category/$', views.category_list, name='category_list'),
+    url(r'category/(?P<pk>[0-9]+)/$', views.category_detail, name='category_detail'),
 ]

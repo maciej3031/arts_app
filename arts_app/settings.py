@@ -38,8 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
     'star_ratings',
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
