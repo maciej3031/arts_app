@@ -3,7 +3,8 @@ from django.contrib import messages
 from django.http import JsonResponse, HttpResponse
 from django.shortcuts import render
 
-from .models import Article, Category, Site, AdvanceSearch
+from .models import Article, Category, Site
+from arts.advance_search import AdvanceSearch
 from .serializers import ArticleSerializer, CategorySerializer
 
 
