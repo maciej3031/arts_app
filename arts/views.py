@@ -6,6 +6,8 @@ from django.shortcuts import render
 from .models import Article, Category, Site
 from arts.advance_search import AdvanceSearch
 from .serializers import ArticleSerializer, CategorySerializer
+from rest_framework import views, mixins
+from rest_framework.viewsets import GenericViewSet
 
 
 def index(request):
@@ -53,37 +55,11 @@ def poll(request):
     return render(request, 'arts/index.html')
 
 
-def article_list(request):
-    if request.method == 'GET':
-        arts = Article.objects.all()
-        serializer = ArticleSerializer(arts, many=True)
-        return JsonResponse(serializer.data, safe=False)
+class ArticleViewSet(mixins.ListModelMixin, mixins.RetrieveModelMixin, GenericViewSet):
+    serializer_class = ArticleSerializer
+    queryset = Article.objects.all()
 
 
-def article_detail(request, pk):
-    try:
-        art = Article.objects.all().get(pk=pk)
-    except Article.DoesNotExist:
-        return HttpResponse(status=404)
-
-    if request.method == 'GET':
-        serializer = ArticleSerializer(art)
-        return JsonResponse(serializer.data)
-
-
-def category_list(request):
-    if request.method == 'GET':
-        cats = Category.objects.all()
-        serializer = CategorySerializer(cats, many=True)
-        return JsonResponse(serializer.data, safe=False)
-
-
-def category_detail(request, pk):
-    try:
-        cat = Category.objects.all().get(pk=pk)
-    except Category.DoesNotExist:
-        return HttpResponse(status=404)
-
-    if request.method == 'GET':
-        serializer = CategorySerializer(cat)
-        return JsonResponse(serializer.data)
+class CategoryViewSet(mixins.ListModelMixin, mixins.RetrieveModelMixin, GenericViewSet):
+    serializer_class = CategorySerializer
+    queryset = Category.objects.all()
